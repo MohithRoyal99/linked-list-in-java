@@ -1,0 +1,39 @@
+class Node {
+    int data;       // store data
+    Node next;
+    Node(int value) {
+        data = value;
+        next = null;
+    }
+}
+public class LinkedListDemo {
+    Node head;
+    public void insert(int value) {
+        Node newNode = new Node(value);
+        if (head == null) {
+            head = newNode; // if list is empty, new node is had
+        } else {
+            Node temp = head;
+            while (temp.next != null) { // traverse to the last node
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+    public static void main(String[] args) {
+        LinkedListDemo list = new LinkedListDemo();
+        list.insert(10);
+        list.insert(20);
+        list.insert(30);
+        list.insert(40);
+        list.display();
+    }
+}
